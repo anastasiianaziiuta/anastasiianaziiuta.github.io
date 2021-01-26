@@ -25,9 +25,9 @@ window.addEventListener('DOMContentLoaded', function (){
                 dist = touchobj.clientX - startx;
                 touchobj = e.changedTouches[0];
                 block.style.left = ( (boxleft + dist > slideWith.offsetWidth)? slideWith.offsetWidth : (boxleft + dist < 0)? 0 : boxleft + dist ) + 'px';
-                block.innerHTML = Math.round(block.offsetLeft * 50000 / slideWith.offsetWidth);
+                block.innerHTML = Math.round(block.offsetLeft * 5000 / slideWith.offsetWidth);
                 function showCost (){
-                    showResult.innerHTML = Math.round( (block.offsetLeft * 50000 / slideWith.offsetWidth) * 20 );
+                    showResult.innerHTML = Math.round( (block.offsetLeft * 5000 / slideWith.offsetWidth) * 20 );
                 }    
                 showCost ();   
           } 
@@ -50,9 +50,9 @@ window.addEventListener('DOMContentLoaded', function (){
           boxleft = e.clientX - startx - slide.getBoundingClientRect().left;
           
           block.style.left = ( (boxleft + dist > slideWith.offsetWidth)? slideWith.offsetWidth : (boxleft + dist < 0)? 0 : boxleft + dist ) + 'px';
-          block.innerHTML = Math.round(block.offsetLeft * 50000 / slideWith.offsetWidth);
+          block.innerHTML = Math.round(block.offsetLeft * 5000 / slideWith.offsetWidth);
           function showCost (){
-              showResult.innerHTML = Math.round( (block.offsetLeft * 50000 / slideWith.offsetWidth) * 20 );
+              showResult.innerHTML = Math.round( (block.offsetLeft * 5000 / slideWith.offsetWidth) * 20 );
           }    
           showCost ();
 
