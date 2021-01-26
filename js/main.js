@@ -8,14 +8,18 @@ window.addEventListener('DOMContentLoaded', function (){
       dist = 0, // расстояние перемещения точки
       touchobj = null; // содержимое объекта перемещения
 
-      block.addEventListener('touchstart', function(e){
+      block.addEventListener('touchstart', onTouchStart);
+      block.addEventListener('touchend', onTouchEnd);
+      function onTouchStart(e){
         console.log('start');
             e.preventDefault(); 
             touchobj = e.changedTouches[0];
             boxleft = block.style.left;
             startx = touchobj.clientX;
 
-            block.addEventListener('touchmove', function(e){
+            block.addEventListener('touchmove', onTouchMove); 
+            
+            function onTouchMove(e) {
               console.log('move');
               e.preventDefault();
                 dist = touchobj.clientX - startx;
@@ -26,9 +30,13 @@ window.addEventListener('DOMContentLoaded', function (){
                     showResult.innerHTML = Math.round( (block.offsetLeft * 50000 / slideWith.offsetWidth) * 20 );
                 }    
                 showCost ();   
-          }, false); 
+          } 
 
-      }, false);
+      }
+      function onTouchEnd(){
+        block.removeEventListener('touchstart', onTouchStart);
+        
+      }
  
       block.addEventListener('mousedown', onMouseDown);
       function onMouseDown(e){
