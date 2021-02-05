@@ -43,11 +43,12 @@ window.addEventListener('DOMContentLoaded', function (){
         e.preventDefault(); 
         
         startx = e.clientX - block.getBoundingClientRect().left;
+
         document.addEventListener('mousemove', onMouseMove);
         document.addEventListener('mouseup', onMouseUp);
   
         function onMouseMove(e) {
-          boxleft = e.clientX - startx - slide.getBoundingClientRect().left;
+          boxleft = e.clientX - startx - slideWith.getBoundingClientRect().left;
           
           block.style.left = ( (boxleft + dist > slideWith.offsetWidth)? slideWith.offsetWidth : (boxleft + dist < 0)? 0 : boxleft + dist ) + 'px';
           block.innerHTML = Math.round(block.offsetLeft * 5000 / slideWith.offsetWidth);
